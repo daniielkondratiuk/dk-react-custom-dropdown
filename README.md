@@ -1,70 +1,86 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Dropdown Component
 
-## Available Scripts
+The Dropdown component is a versatile and customizable React component that provides a user-friendly dropdown menu for selecting options.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Fully customizable appearance and styling.
+- Dropdown can be themed using predefined color schemes.
+- Option to specify the width of the dropdown container.
+- Click outside the dropdown to close it.
+- Smooth animation for opening and closing the dropdown.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+To use the Dropdown component in your React project, follow these steps:
 
-### `npm test`
+1. Install the package using npm:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+npm install dk-custom-dropdown
+```
 
-### `npm run build`
+## Props
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-   `placeholder`: A string that is displayed when no option is selected.
+-   `options`: An array of objects representing the available options in the dropdown. Each object should have a `label` (string) and a `value` (string or number).
+-   `selected`: An object representing the currently selected option. Should have a `label` and a `value`.
+-   `setSelected`: A function to update the selected option when an option is clicked.
+-   `width` (optional): The width of the dropdown container in pixels.
+-   `theme` (optional): The theme of the dropdown, can be `'primary'` (default) or a custom class name.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Styles
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+You can customize the appearance of the Dropdown component by applying your own styles. Refer to the provided CSS file for available CSS classes and variables.
 
-### `npm run eject`
+## Themes
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The Dropdown component supports the following predefined color themes:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+-   `primary`
+-   `secondary`
+-   `success`
+-   `danger`
+-   `warning`
+-   `info`
+-   `light`
+-   `dark`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Apply a theme by setting the `theme` prop to the desired theme name.
+## Example
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```JSX
+import React, { useState } from 'react';
+import Dropdown from 'dk-custom-dropdown'; 
 
-## Learn More
+const App = () => {
+    const options = [
+        { label: 'Option 1', value: 'option1' },
+        { label: 'Option 2', value: 'option2' },
+        // Add more options here
+    ];
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    const [selectedOption, setSelectedOption] = useState({});
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    const handleOptionChange = (newOption) => {
+        setSelectedOption(newOption);
+    };
 
-### Code Splitting
+    return (
+        <div>
+            <h1>Your App</h1>
+            <Dropdown
+                placeholder="Select an option"
+                options={options}
+                selected={selectedOption}
+                setSelected={handleOptionChange}
+                width={200} // Optional: Set the width of the dropdown
+                theme="primary" // Optional: Set a color theme for the dropdown
+            />
+        </div>
+    );
+};
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+export default App;
+```
