@@ -7,7 +7,7 @@
     "README.md"
   ],
   "author": "Daniiel Kondratiuk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
@@ -41,5 +41,9 @@
     "@babel/preset-env": "^7.22.14",
     "@babel/preset-react": "^7.22.5",
     "babel-cli": "^6.26.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daniielkondratiuk/dk-react-custom-dropdown"
   }
 }
